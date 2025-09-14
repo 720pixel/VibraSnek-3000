@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Snake — Modern HTML5</title>
+  <link rel="stylesheet" href="snake.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="bar">
+      <h1>Snake</h1>
+      <div class="stats">
+        <div class="stat"><span>Score</span><strong id="score">0</strong></div>
+        <div class="stat"><span>Best</span><strong id="best">0</strong></div>
+        <button id="pauseBtn" class="btn" aria-pressed="false" title="Pause/Resume (P)">Pause</button>
+        <button id="restartBtn" class="btn" title="Restart (R)">Restart</button>
+        <details class="settings">
+          <summary>Settings</summary>
+          <label>Speed
+            <input id="speed" type="range" min="4" max="18" step="1" value="10" />
+          </label>
+          <label>Grid Size
+            <select id="grid">
+              <option value="16">16</option>
+              <option value="20" selected>20</option>
+              <option value="24">24</option>
+              <option value="28">28</option>
+            </select>
+          </label>
+        </details>
+      </div>
+    </header>
+
+    <section class="stage">
+      <canvas id="board" width="600" height="600" aria-label="Snake game board" role="img"></canvas>
+
+      <div class="overlay hidden" id="overlay" aria-live="polite">
+        <div class="dialog">
+          <h2 id="stateTitle">Paused</h2>
+          <p id="stateSub">Press Space to continue</p>
+          <div class="row">
+            <button id="resumeBtn" class="btn primary">Resume</button>
+            <button id="overlayRestartBtn" class="btn">Restart</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="help">
+      <p>Controls: Arrow Keys / WASD • Pause: P/Space • Restart: R</p>
+      <div class="touch">
+        <button class="dpad up" data-dir="0,-1" aria-label="Up">▲</button>
+        <div class="row">
+          <button class="dpad left" data-dir="-1,0" aria-label="Left">◀</button>
+          <button class="dpad right" data-dir="1,0" aria-label="Right">▶</button>
+        </div>
+        <button class="dpad down" data-dir="0,1" aria-label="Down">▼</button>
+      </div>
+    </footer>
+  </main>
+
+  <script src="snake.js"></script>
+  <script>
+    // Simple theme sync if parent site defines CSS variables
+    const root = document.documentElement;
+    if (!getComputedStyle(root).getPropertyValue('--bg').trim()) {
+      root.style.setProperty('--bg', '#0b0f14');
+      root.style.setProperty('--panel', '#121822');
+      root.style.setProperty('--accent', '#7cffc0');
+      root.style.setProperty('--grid', '#1a2330');
+      root.style.setProperty('--text', '#d6e6ff');
+      root.style.setProperty('--muted', '#8aa0b6');
+      root.style.setProperty('--danger', '#ff5d5d');
+    }
+  </script>
+</body>
+</html>
+
