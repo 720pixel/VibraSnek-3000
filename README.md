@@ -40,12 +40,8 @@ Your best score is stored locally as `snake.best`.
 - `snake.css` — Styling, layout, overlays, and D‑Pad
 - `snake.js` — Game engine, rendering, input, and state
 
-## 📸 Screenshot (optional)
-Drop a screenshot in the repo and link it here:
-
-```
-![VibraSnek 3000](./screenshot.png)
-```
+## 📸 Screenshot
+![VibraSnek 3000](screenshot.png)
 
 ## ✅ Accessibility Notes
 - Canvas labeled with `aria-label` and uses an overlay for pause/game over.
